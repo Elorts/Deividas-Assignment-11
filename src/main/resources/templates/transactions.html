@@ -16,9 +16,17 @@
 			</tr>
 
 			<div th:each="transaction : ${transactions}">
-				<span th:inline="text">
-					[[${transaction.id}]] [[${transaction.retailer}]]
-				</span>
+<!--				<span th:inline="text">-->
+<!--					[[${transaction.id}]] [[${transaction.retailer}]]-->
+<!--				</span>-->
+
+				<tr>
+					<td><a href="/transactions/50">[[${transaction.id}]]</a></td>
+					<td>[[${transaction.date}]]</td>
+					<td>[[${transaction.retailer}]]</td>
+					<td th:if="${transaction.type == 'D'}">[[${transaction.amount}]]</td>
+					<td>[[${transaction.type}]]</td>
+				</tr>
 
 			</div>
 

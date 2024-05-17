@@ -15,6 +15,13 @@
 				<th>Funds Out</th>
 			</tr>
 
+			<div th:each="transaction : ${transactions}">
+				<span th:inline="text">
+					[[${transaction.id}]] [[${transaction.retailer}]]
+				</span>
+
+			</div>
+
 			<!-- These 4 rows below are for demonstration purposes only
 			     You will need to edit the code below in order to make
 			     it dynamically list ALL 100 transactions from the Repo

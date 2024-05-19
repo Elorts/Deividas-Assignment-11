@@ -21,17 +21,6 @@ public class TransactionsController {
         List<Transaction> transactions = transactionService.findAll();
 
         model.put("transactions", transactions);
-
-
-//        // tc
-//        for (Transaction t : transactions) {
-//
-//
-//            //System.out.println(t.getRetailer());
-//        }
-//
-//        // /tc
-
         return "transactions";
     }
 }

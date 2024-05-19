@@ -14,6 +14,9 @@ public class TransactionService {
     TransactionRepository transactionRepo;
 
     public List<Transaction> findAll() {
-        return transactionRepo.findAll();
+
+        List <Transaction> unsortedList = transactionRepo.findAll();
+        unsortedList.sort((e1, e2) -> e1.getDate().compareTo(e2.getDate()));
+        return unsortedList;
     }
 }

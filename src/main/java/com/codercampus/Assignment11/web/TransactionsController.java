@@ -18,7 +18,6 @@ public class TransactionsController {
     public String getTransactions(ModelMap model) {
 
         List<Transaction> transactions = transactionService.findAll();
-
         model.put("transactions", transactions);
         return "transactions";
     }

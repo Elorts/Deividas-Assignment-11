@@ -6,7 +6,9 @@
 	<body>
 		<h2>Transaction History</h2>
 		
-		<table>
+		<table th:if="${transactions != null}">
+
+<!--		<table>-->
 			<tr>
 				<th>ID</th>
 				<th>Date</th>
@@ -18,7 +20,8 @@
 			<div th:each="transaction : ${transactions}">
 
 				<tr>
-					<td><a href="/transactions/50">[[${transaction.id}]]</a></td>
+					// how to get var in html th...
+					<td><a th:href="@{/transactions/${transactionId}}">[[${transaction.id}]]</a></td>
 					<td>[[${transaction.date}]]</td>
 					<td>[[${transaction.retailer}]]</td>
 					<td>
@@ -33,5 +36,7 @@
 
 			</div>
 		</table>
+
+
 	</body>
 </html>

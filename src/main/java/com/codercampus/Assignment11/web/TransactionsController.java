@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
 import java.util.List;
 
 @Controller
@@ -19,6 +21,19 @@ public class TransactionsController {
 
         List<Transaction> transactions = transactionService.findAll();
         model.put("transactions", transactions);
+        return "transactions";
+    }
+
+    @GetMapping("/transactions/{transactionId}")
+    public String getSingleTransaction(@PathVariable Long transactionId, ModelMap model) {
+        Transaction transaction = transactionService.findById(transactionId);
+
+        //transactionId = 1L;
+
+        System.out.println("tr id: " + transactionId);
+
+        model.put("transactions", transaction);
+        model.put("transactionId", transactionId);
         return "transactions";
     }
 }

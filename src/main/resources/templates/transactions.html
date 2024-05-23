@@ -4,9 +4,12 @@
 		<link rel="stylesheet" href="/css/transactions.css"/>
 	</head>
 	<body>
-		<h2>Transaction History</h2>
+
 		
-		<table>
+		<table th:unless="${transactionId != null}">
+
+			<h2>Transaction History</h2>
+
 			<tr>
 				<th>ID</th>
 				<th>Date</th>
@@ -18,7 +21,7 @@
 			<div th:each="transaction : ${transactions}">
 
 				<tr>
-					<td><a href="/transactions/50">[[${transaction.id}]]</a></td>
+					<td><a th:href="@{/transactions/${transactionId}}">[[${transaction.id}]]</a></td>
 					<td>[[${transaction.date}]]</td>
 					<td>[[${transaction.retailer}]]</td>
 					<td>
@@ -33,5 +36,11 @@
 
 			</div>
 		</table>
+
+	<div th:if="${transactionId != null}">
+		<p>Bubu!!!!</p>
+	</div>
+
+
 	</body>
 </html>

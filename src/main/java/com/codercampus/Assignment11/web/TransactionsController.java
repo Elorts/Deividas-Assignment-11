@@ -27,7 +27,13 @@ public class TransactionsController {
     @GetMapping("/transactions/{transactionId}")
     public String getSingleTransaction(@PathVariable Long transactionId, ModelMap model) {
         Transaction transaction = transactionService.findById(transactionId);
+
+        //transactionId = 1L;
+
+        System.out.println("tr id: " + transactionId);
+
         model.put("transactions", transaction);
-        return "redirect:/transactions";
+        model.put("transactionId", transactionId);
+        return "transactions";
     }
 }

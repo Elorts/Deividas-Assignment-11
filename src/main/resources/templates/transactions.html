@@ -4,11 +4,12 @@
 		<link rel="stylesheet" href="/css/transactions.css"/>
 	</head>
 	<body>
-		<h2>Transaction History</h2>
-		
-		<table th:if="${transactions != null}">
 
-<!--		<table>-->
+		
+		<table th:unless="${transactionId != null}">
+
+			<h2>Transaction History</h2>
+
 			<tr>
 				<th>ID</th>
 				<th>Date</th>
@@ -20,7 +21,6 @@
 			<div th:each="transaction : ${transactions}">
 
 				<tr>
-					// how to get var in html th...
 					<td><a th:href="@{/transactions/${transactionId}}">[[${transaction.id}]]</a></td>
 					<td>[[${transaction.date}]]</td>
 					<td>[[${transaction.retailer}]]</td>
@@ -36,6 +36,10 @@
 
 			</div>
 		</table>
+
+	<div th:if="${transactionId != null}">
+		<p>Bubu!!!!</p>
+	</div>
 
 
 	</body>

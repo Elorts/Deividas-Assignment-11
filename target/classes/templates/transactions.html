@@ -6,9 +6,8 @@
 	<body>
 		<h2>Transaction History</h2>
 		
-		<table th:if="${transactions != null}">
+		<table th:unless="${transactionId != null}">
 
-<!--		<table>-->
 			<tr>
 				<th>ID</th>
 				<th>Date</th>
@@ -35,6 +34,10 @@
 
 			</div>
 		</table>
+
+	<div th:if="${transactionId != null}">
+		<p>Bubu!!!!</p>
+	</div>
 
 
 	</body>

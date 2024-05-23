@@ -30,7 +30,7 @@ public class TransactionsController {
 
         //transactionId = 1L;
 
-        System.out.println("tr id: " + transactionId);
+        System.out.println("transaction: " + transaction.getRetailer());
 
         model.put("transactions", transaction);
         model.put("transactionId", transactionId);

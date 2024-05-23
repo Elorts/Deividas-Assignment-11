@@ -32,10 +32,12 @@ public class TransactionService {
 //                                                                      .findFirst();
         Transaction resultById = null;
 
-        for (Transaction t : getTransactions())
-            if (t.getId() == id)
+        List <Transaction> listOfTransactions = getTransactions();
+        for (Transaction t : listOfTransactions)
+            if (t.getId() == id) {
                 resultById = t;
-        
+                System.out.println("id:" + id);
+            }
         return resultById;
     }
 }

@@ -4,9 +4,11 @@
 		<link rel="stylesheet" href="/css/transactions.css"/>
 	</head>
 	<body>
-		<h2>Transaction History</h2>
+
 		
 		<table th:unless="${transactionId != null}">
+
+			<h2>Transaction History</h2>
 
 			<tr>
 				<th>ID</th>
@@ -36,7 +38,11 @@
 		</table>
 
 	<div th:if="${transactionId != null}">
-		<p>Bubu!!!!</p>
+		<h1>Transaction ID: [[${transactionId}]] ([[${transaction.type}]])</h1>
+		<p>Date: [[${transaction.date}]]</p>
+		<p>Date: [[${transaction.amount}]]</p>
+		<p>Date: [[${transaction.description}]]</p>
+		<a href="/transactions"> Back </a>
 	</div>
 
 

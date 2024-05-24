@@ -3,9 +3,8 @@
 		<title>Online Bank</title>
 		<link rel="stylesheet" href="/css/transactions.css"/>
 	</head>
-	<body>
 
-		
+	<body>
 		<table th:unless="${transactionId != null}">
 
 			<h2>Transaction History</h2>
@@ -25,26 +24,34 @@
 					<td>[[${transaction.date}]]</td>
 					<td>[[${transaction.retailer}]]</td>
 					<td>
-						<span th:if="${transaction.type == 'D'}">[[${transaction.amount}]]</span>
-						<span th:unless="${transaction.type == 'D'}"></span>
-					</td>
-					<td>
 						<span th:if="${transaction.type == 'C'}">[[${transaction.amount}]]</span>
 						<span th:unless="${transaction.type == 'C'}"></span>
+					</td>
+					<td>
+						<span th:if="${transaction.type == 'D'}">[[${transaction.amount}]]</span>
+						<span th:unless="${transaction.type == 'D'}"></span>
 					</td>
 				</tr>
 
 			</div>
 		</table>
 
-	<div th:if="${transactionId != null}">
-		<h1>Transaction ID: [[${transactionId}]] ([[${transaction.type}]])</h1>
-		<p>Date: [[${transaction.date}]]</p>
-		<p>Date: [[${transaction.amount}]]</p>
-		<p>Date: [[${transaction.description}]]</p>
-		<a href="/transactions"> Back </a>
-	</div>
+		<div th:if="${transactionId != null}">
+			<div th:if="${transaction.type == 'C'}">
+				<h1>Transaction ID: [[${transactionId}]] (Credit)</h1>
+				<p>Date: [[${transaction.date}]]
+					<br>Amount: -[[${transaction.amount}]]
+					<br>Description: [[${transaction.description}]]
+					<br><a href="/transactions"> back </a></p>
+			</div>
 
-
+			<div th:if="${transaction.type == 'D'}">
+				<h1>Transaction ID: [[${transactionId}]] (Debit)</h1>
+				<p>Date: [[${transaction.date}]]
+					<br>Amount: [[${transaction.amount}]]
+					<br>Description: [[${transaction.description}]]
+					<br><a href="/transactions"> back </a></p>
+			</div>
+		</div>
 	</body>
 </html>

@@ -33,11 +33,16 @@ public class TransactionService {
         Transaction resultById = null;
 
         List <Transaction> listOfTransactions = getTransactions();
-        for (Transaction t : listOfTransactions)
-            if (t.getId() == id) {
+
+        for (Transaction t : listOfTransactions) {
+
+            if (t.getId().equals(id)) {
                 resultById = t;
                 System.out.println("id:" + id);
             }
+
+        }
         return resultById;
+
     }
 }

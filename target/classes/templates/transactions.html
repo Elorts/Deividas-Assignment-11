@@ -21,7 +21,7 @@
 			<div th:each="transaction : ${transactions}">
 
 				<tr>
-					<td><a th:href="@{/transactions/${transactionId}}">[[${transaction.id}]]</a></td>
+					<td><a th:href="@{/transactions/{id}(id=${transaction.id})}">[[${transaction.id}]]</a></td>
 					<td>[[${transaction.date}]]</td>
 					<td>[[${transaction.retailer}]]</td>
 					<td>
